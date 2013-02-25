@@ -61,8 +61,8 @@ GLUSboolean init(GLUSvoid)
 
     GLUSshape cube;
 
-    glusLoadTextFile("../Example06_ES/shader/basic.vert.glsl", &vertexSource);
-    glusLoadTextFile("../Example06_ES/shader/texture.frag.glsl", &fragmentSource);
+    glusLoadTextFile("../Example06_ES2/shader/basic.vert.glsl", &vertexSource);
+    glusLoadTextFile("../Example06_ES2/shader/texture.frag.glsl", &fragmentSource);
 
     glusBuildProgramFromSource(&g_program, (const GLUSchar**) &vertexSource.text, (const GLUSchar**) &fragmentSource.text);
 
