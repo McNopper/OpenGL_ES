@@ -77,8 +77,8 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.947635265">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.947635265" moduleId="org.eclipse.cdt.core.settings" name="DebugRaspberryPi">
+		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711" moduleId="org.eclipse.cdt.core.settings" name="DebugRaspberryPi">
 				<externalSettings>
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Example01_ES2"/>
@@ -96,39 +96,40 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="" artifactName="${ProjName}_DBG" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.947635265" name="DebugRaspberryPi" parent="cdt.managedbuild.config.gnu.mingw.lib.debug">
-					<folderInfo id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.947635265." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.2086763111" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
-							<option id="cdt.managedbuild.option.gnu.cross.prefix.1283999534" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.933322491" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/nopper/Development/RaspberryPi/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin" valueType="string"/>
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.330704262" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/GLUS/DebugRaspberryPi}" id="cdt.managedbuild.builder.gnu.cross.86283110" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.32584118" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<option id="gnu.c.compiler.option.include.paths.818690590" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+				<configuration artifactExtension="" artifactName="${ProjName}_DBG" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711" name="DebugRaspberryPi" parent="cdt.managedbuild.config.gnu.mingw.lib.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.1188457796" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.1118249992" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1994746190" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/nopper/Development/RaspberryPi/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin" valueType="string"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1200047974" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/GLUS/DebugRaspberryPi}" id="cdt.managedbuild.builder.gnu.cross.159703895" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1300864258" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option id="gnu.c.compiler.option.include.paths.1222840552" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/src}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/usr/include"/>
+									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/SDL/include"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include/interface/vmcs_host/linux"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include/interface/vcos/pthreads"/>
 								</option>
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.895713060" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.debugging.level.2030568444" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.preprocessor.def.symbols.892042592" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.2052698444" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.1381201167" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1276178366" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="GLUS_ES2=1"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1648441031" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1583935798" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.503530605" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="gnu.cpp.compiler.option.optimization.level.626877898" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.debugging.level.1414475552" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.74808839" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1328630574" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.611237268" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.658809904" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
-								<option id="gnu.c.link.option.paths.311741244" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.72267768" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<option id="gnu.c.link.option.paths.914909790" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/DebugRaspberryPi}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/usr/lib"/>
+									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/SDL/lib"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/lib"/>
 								</option>
-								<option id="gnu.c.link.option.libs.809207418" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
+								<option id="gnu.c.link.option.libs.417087997" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="GLUS"/>
 									<listOptionValue builtIn="false" value="GLESv2"/>
 									<listOptionValue builtIn="false" value="EGL"/>
@@ -139,16 +140,16 @@
 									<listOptionValue builtIn="false" value="rt"/>
 									<listOptionValue builtIn="false" value="m"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.184118733" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.905343785" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
-								<outputType id="cdt.managedbuild.tool.gnu.c.linker.output.1887325700" outputPrefix="../../Binaries/" superClass="cdt.managedbuild.tool.gnu.c.linker.output"/>
+								<outputType id="cdt.managedbuild.tool.gnu.c.linker.output.359794716" outputPrefix="../../Binaries/" superClass="cdt.managedbuild.tool.gnu.c.linker.output"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1363818291" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1202516632" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.636999428" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1101779674" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1012898526" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.495518152" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.899253004" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2134733280" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
@@ -159,8 +160,8 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.787067012.218457605">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.787067012.218457605" moduleId="org.eclipse.cdt.core.settings" name="ReleaseRaspberryPi">
+		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498" moduleId="org.eclipse.cdt.core.settings" name="ReleaseRaspberryPi">
 				<externalSettings>
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Example01_ES2"/>
@@ -178,39 +179,40 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.787067012.218457605" name="ReleaseRaspberryPi" parent="cdt.managedbuild.config.gnu.mingw.lib.debug">
-					<folderInfo id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.787067012.218457605." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.1788149707" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
-							<option id="cdt.managedbuild.option.gnu.cross.prefix.325339749" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.819951067" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/nopper/Development/RaspberryPi/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin" valueType="string"/>
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1800819873" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/GLUS/DebugRaspberryPi}" id="cdt.managedbuild.builder.gnu.cross.769521271" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1337913830" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<option id="gnu.c.compiler.option.include.paths.935383599" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+				<configuration artifactExtension="" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498" name="ReleaseRaspberryPi" parent="cdt.managedbuild.config.gnu.mingw.lib.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.37200284" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.1424654133" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.1189627142" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/nopper/Development/RaspberryPi/tools-master/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin" valueType="string"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1475411584" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/GLUS/DebugRaspberryPi}" id="cdt.managedbuild.builder.gnu.cross.1425747799" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.981499496" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option id="gnu.c.compiler.option.include.paths.444241935" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/src}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/usr/include"/>
+									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/SDL/include"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include/interface/vmcs_host/linux"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/include/interface/vcos/pthreads"/>
 								</option>
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.710535036" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.most" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.debugging.level.19910587" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.preprocessor.def.symbols.734939333" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.380223683" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.2137093360" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1214572857" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="GLUS_ES2=1"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.893839140" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2072847294" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1131814670" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="gnu.cpp.compiler.option.optimization.level.1817216461" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.debugging.level.204845618" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1639258526" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.724392284" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.777610332" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1487399350" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
-								<option id="gnu.c.link.option.paths.954430198" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.987892844" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
+								<option id="gnu.c.link.option.paths.1701913722" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/ReleaseRaspberryPi}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/usr/lib"/>
+									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/SDL/lib"/>
 									<listOptionValue builtIn="false" value="/home/nopper/Development/RaspberryPi/rootfs/opt/vc/lib"/>
 								</option>
-								<option id="gnu.c.link.option.libs.1572938969" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
+								<option id="gnu.c.link.option.libs.1811083161" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="GLUS"/>
 									<listOptionValue builtIn="false" value="GLESv2"/>
 									<listOptionValue builtIn="false" value="EGL"/>
@@ -221,16 +223,16 @@
 									<listOptionValue builtIn="false" value="rt"/>
 									<listOptionValue builtIn="false" value="m"/>
 								</option>
-								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1173803325" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1128707273" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
-								<outputType id="cdt.managedbuild.tool.gnu.c.linker.output.1134794330" outputPrefix="../../Binaries/" superClass="cdt.managedbuild.tool.gnu.c.linker.output"/>
+								<outputType id="cdt.managedbuild.tool.gnu.c.linker.output.1466442804" outputPrefix="../../Binaries/" superClass="cdt.managedbuild.tool.gnu.c.linker.output"/>
 							</tool>
-							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.314696539" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1379492714" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
-							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.2103170907" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.380756854" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1910576039" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1344774828" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1653311416" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1217718304" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>

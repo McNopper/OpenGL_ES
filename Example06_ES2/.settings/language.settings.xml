@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project>
 	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459.1419333109.1505205906" name="DebugES2"/>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.678542830" name="DebugRaspberryPi"/>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.787067012.1806799434" name="ReleaseRaspberryPi"/>
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197" name="DebugRaspberryPi"/>
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612" name="ReleaseRaspberryPi"/>
 </project>
