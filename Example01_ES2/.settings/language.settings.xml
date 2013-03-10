@@ -2,10 +2,25 @@
 <project>
 	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459" name="x86__Windows_GLES2_MinGW_Debug">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
-			<provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.ui.UserLanguageSettingsProvider" ref="shared-provider"/>
 		</extension>
 	</configuration>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711.314922294" name="ARMv6_VC4_Linux_GLES2_GCC_Debug"/>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498.185183197" name="ARMv6_VC4_Linux_GLES2_GCC_Release"/>
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.178659711.314922294" name="ARMv6_VC4_Linux_GLES2_GCC_Debug">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetector" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.ui.UserLanguageSettingsProvider" ref="shared-provider"/>
+		</extension>
+	</configuration>
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.28342381.1908778913.1924285636.2022443035.217854197.1930975612.861760498.185183197" name="ARMv6_VC4_Linux_GLES2_GCC_Release">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuiltinSpecsDetector" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.ui.UserLanguageSettingsProvider" ref="shared-provider"/>
+		</extension>
+	</configuration>
 </project>
