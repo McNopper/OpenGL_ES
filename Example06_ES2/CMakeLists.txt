@@ -60,9 +60,10 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	# Windows
 	
-	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${Example06_ES2_SOURCE_DIR}/../Binaries)
-	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${Example06_ES2_SOURCE_DIR}/../Binaries)
-	
 	target_link_libraries(Example06_ES2 GLUS libEGL libGLESv2)
-						
+
+	message("Executable is deployed either to Binaries/Release or Binaries/Debug.")
+	message("Copy the executable to the Binaries folder.")
+	message("CMAKE_RUNTIME_OUTPUT_DIRECTORY is set to Binaries, but Release/Debug is appended.")
+									
 ENDIF()
