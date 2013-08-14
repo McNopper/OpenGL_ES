@@ -203,7 +203,7 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.mingw.lib.debug.option.optimization.level.1297058065" name="Optimization Level" superClass="gnu.c.compiler.mingw.lib.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.mingw.lib.debug.option.debugging.level.1083011912" name="Debug Level" superClass="gnu.c.compiler.mingw.lib.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1722594448" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;C:\Imagination\PowerVR\GraphicsSDK\SDK_3.0\Builds\OGLES2\Include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Imagination\PowerVR\GraphicsSDK\SDK_3.1\Builds\Include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/src}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.warnings.wconversion.691527791" name="Implicit conversion warnings (-Wconversion)" superClass="gnu.c.compiler.option.warnings.wconversion" value="false" valueType="boolean"/>
@@ -217,7 +217,7 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.base.1812572199" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.base">
 								<option id="gnu.c.link.option.paths.2112473907" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;C:\Imagination\PowerVR\GraphicsSDK\SDK_3.0\Builds\OGLES2\Windows_x86_32\Lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Imagination\PowerVR\GraphicsSDK\SDK_3.1\Builds\Windows\x86_32\Lib&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/GLUS/x86__Windows_GLES2_MinGW_Debug}&quot;"/>
 								</option>
 								<option id="gnu.c.link.option.libs.544881815" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
