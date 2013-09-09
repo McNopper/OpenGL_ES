@@ -31,9 +31,9 @@ ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 	add_definitions(-DGLUS_ES2)
 	
-	include_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.0\\Builds\\OGLES2\\Include ${Example06_ES2_SOURCE_DIR}/../GLUS/src)	
+	include_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.1\\Builds\\Include ${Example06_ES2_SOURCE_DIR}/../GLUS/src)	
 	
-	link_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.0\\Builds\\OGLES2\\Windows_x86_32\\Lib ${Example06_ES2_SOURCE_DIR}/../GLUS)
+	link_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.1\\Builds\\Windows\\x86_32\\Lib ${Example06_ES2_SOURCE_DIR}/../GLUS)
 			
 ENDIF()
 
