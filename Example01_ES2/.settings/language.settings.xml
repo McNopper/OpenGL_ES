@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459" name="x86__Windows_GLES2_MinGW_Debug">
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459" name="x86_PowerVR_Windows_GLES2_MinGW_Debug">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
@@ -23,7 +23,7 @@
 			<provider-reference id="org.eclipse.cdt.ui.UserLanguageSettingsProvider" ref="shared-provider"/>
 		</extension>
 	</configuration>
-	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459.1926822838" name="x64__Linux_GLES2_GCC_Debug">
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459.1926822838" name="x64_Mali_Linux_GLES2_GCC_Debug">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
@@ -31,6 +31,13 @@
 		</extension>
 	</configuration>
 	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459.981630374" name="x86_AMD_Windows_GLES2_MinGW_Debug">
+		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
+			<provider-reference id="org.eclipse.cdt.ui.UserLanguageSettingsProvider" ref="shared-provider"/>
+		</extension>
+	</configuration>
+	<configuration id="cdt.managedbuild.config.gnu.mingw.lib.debug.1519633019.837986836.1846977762.1167306459.1677697958" name="x86_ANGLE_Windows_GLES2_MinGW_Debug">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.MBSLanguageSettingsProvider" ref="shared-provider"/>
 			<provider-reference id="org.eclipse.cdt.managedbuilder.core.GCCBuildCommandParser" ref="shared-provider"/>
