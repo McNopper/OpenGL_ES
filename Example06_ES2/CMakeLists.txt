@@ -12,7 +12,8 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	# Linux
 
 	IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
-		# For now, only Raspberry Pi configuration has an ARM CPU
+		# Raspberry Pi
+		# ToDo Add i.MX6
 		
 		add_definitions(-DGLUS_ES2)
 		
@@ -51,7 +52,8 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 	# Linux
 
 	IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
-		# For now, only Raspberry Pi configuration has an ARM CPU
+		# Raspberry Pi
+		# ToDo Add i.MX6
 		
 		target_link_libraries(Example06_ES2 SDL GLUS EGL GLESv2 bcm_host vcos vchiq_arm pthread rt m)
 		
