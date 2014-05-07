@@ -11,7 +11,7 @@
 #ifndef WAVEFRONT_H_
 #define WAVEFRONT_H_
 
-#include "GLES3/glus.h"
+#include "GLES3/glus3.h"
 
 #define TEXTURE_WIDTH 640
 #define TEXTURE_HEIGHT 480

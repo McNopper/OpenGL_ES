@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 
-#include "GLES2/glus.h"
+#include "GLES2/glus2.h"
 
 /**
  * The used shader program.

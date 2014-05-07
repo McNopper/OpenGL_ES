@@ -13,7 +13,7 @@
 #include <math.h>
 #include <string.h>
 
-#include "GLES3/glus.h"
+#include "GLES3/glus3.h"
 
 #include "globals.h"
 #include "renderBackground.h"

@@ -12,7 +12,7 @@
 
 #include <math.h>
 
-#include "GLES3/glus.h"
+#include "GLES3/glus3.h"
 
 static GLUSshaderprogram g_program;
 

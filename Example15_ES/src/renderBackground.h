@@ -8,7 +8,7 @@
  * Copyright Norbert Nopper
  */
 
-#include "GLES3/glus.h"
+#include "GLES3/glus3.h"
 
 GLUSboolean initBackground();
 

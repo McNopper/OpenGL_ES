@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 
-#include "GLES3/glus.h"
+#include "GLES3/glus3.h"
 
 /**
  * Width of the viewport, needed to reset from framebuffer.

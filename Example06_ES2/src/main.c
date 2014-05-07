@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 
-#include "GLES2/glus.h"
+#include "GLES2/glus2.h"
 
 static GLUSshaderprogram g_program;
 
