@@ -12,7 +12,7 @@
 
 #include "GLES2/glus2.h"
 
-static GLUSshaderprogram g_program;
+static GLUSprogram g_program;
 
 // The matrix locations in the program.
 
@@ -61,13 +61,13 @@ GLUSboolean init(GLUSvoid)
 
     GLUSshape cube;
 
-    glusLoadTextFile("../Example06_ES2/shader/basic.vert.glsl", &vertexSource);
-    glusLoadTextFile("../Example06_ES2/shader/texture.frag.glsl", &fragmentSource);
+    glusFileLoadText("../Example06_ES2/shader/basic.vert.glsl", &vertexSource);
+    glusFileLoadText("../Example06_ES2/shader/texture.frag.glsl", &fragmentSource);
 
-    glusBuildProgramFromSource(&g_program, (const GLUSchar**) &vertexSource.text, (const GLUSchar**) &fragmentSource.text);
+    glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, (const GLUSchar**) &fragmentSource.text);
 
-    glusDestroyTextFile(&vertexSource);
-    glusDestroyTextFile(&fragmentSource);
+    glusFileDestroyText(&vertexSource);
+    glusFileDestroyText(&fragmentSource);
 
     //
 
@@ -87,14 +87,14 @@ GLUSboolean init(GLUSvoid)
 
     // Texture set up.
 
-    glusLoadTgaImage("crate.tga", &image);
+    glusImageLoadTga("crate.tga", &image);
 
     glGenTextures(1, &g_texture);
     glBindTexture(GL_TEXTURE_2D, g_texture);
 
     glTexImage2D(GL_TEXTURE_2D, 0, image.format, image.width, image.height, 0, image.format, GL_UNSIGNED_BYTE, image.data);
 
-    glusDestroyTgaImage(&image);
+    glusImageDestroyTga(&image);
 
     // Mipmap generation is now included in OpenGL 3 and above
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -109,7 +109,7 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusCreateCubef(&cube, 0.5f);
+    glusShapeCreateCubef(&cube, 0.5f);
 
     g_numberIndicesSphere = cube.numberIndices;
 
@@ -133,7 +133,7 @@ GLUSboolean init(GLUSvoid)
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-    glusDestroyShapef(&cube);
+    glusShapeDestroyf(&cube);
 
     //
 
@@ -183,9 +183,9 @@ GLUSvoid reshape(GLUSint width, GLUSint height)
 
     glViewport(0, 0, width, height);
 
-    glusLookAtf(viewMatrix, 0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+    glusMatrix4x4LookAtf(viewMatrix, 0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
-    glusPerspectivef(viewProjectionMatrix, 40.0f, (GLfloat) width / (GLfloat) height, 1.0f, 100.0f);
+    glusMatrix4x4Perspectivef(viewProjectionMatrix, 40.0f, (GLfloat) width / (GLfloat) height, 1.0f, 100.0f);
 
     glusMatrix4x4Multiplyf(viewProjectionMatrix, viewProjectionMatrix, viewMatrix);
 
@@ -262,7 +262,7 @@ GLUSvoid terminate(GLUSvoid)
 
     glUseProgram(0);
 
-    glusDestroyProgram(&g_program);
+    glusProgramDestroy(&g_program);
 }
 
 int main(int argc, char* argv[])
@@ -281,21 +281,21 @@ int main(int argc, char* argv[])
     		EGL_NONE
     };
 
-    glusInitFunc(init);
+    glusCallbackSetInitFunc(init);
 
-    glusReshapeFunc(reshape);
+    glusCallbackSetReshapeFunc(reshape);
 
-    glusUpdateFunc(update);
+    glusCallbackSetUpdateFunc(update);
 
-    glusTerminateFunc(terminate);
+    glusCallbackSetTerminateFunc(terminate);
 
-    if (!glusCreateWindow("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
+    if (!glusWindowCreate("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
     {
         printf("Could not create window!\n");
         return -1;
     }
 
-    glusRun();
+    glusWindowRun();
 
     return 0;
 }

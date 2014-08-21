@@ -15,7 +15,7 @@
 /**
  * The used shader program.
  */
-static GLUSshaderprogram g_program;
+static GLUSprogram g_program;
 
 /**
  * The location of the vertex in the shader program.
@@ -36,15 +36,15 @@ GLUSboolean init(GLUSvoid)
     GLUStextfile fragmentSource;
 
     // Load the source of the vertex and fragment shader.
-    glusLoadTextFile("../Example02_ES2/shader/simple.vert.glsl", &vertexSource);
-    glusLoadTextFile("../Example02_ES2/shader/red.frag.glsl", &fragmentSource);
+    glusFileLoadText("../Example02_ES2/shader/simple.vert.glsl", &vertexSource);
+    glusFileLoadText("../Example02_ES2/shader/red.frag.glsl", &fragmentSource);
 
     // Build the program.
-    glusBuildProgramFromSource(&g_program, (const GLchar**) &vertexSource.text, (const GLchar**) &fragmentSource.text);
+    glusProgramBuildFromSource(&g_program, (const GLchar**) &vertexSource.text, (const GLchar**) &fragmentSource.text);
 
     // Destroy the text resources.
-    glusDestroyTextFile(&vertexSource);
-    glusDestroyTextFile(&fragmentSource);
+    glusFileDestroyText(&vertexSource);
+    glusFileDestroyText(&fragmentSource);
 
     //
 
@@ -106,7 +106,7 @@ GLUSvoid terminate(GLUSvoid)
 
     glUseProgram(0);
 
-    glusDestroyProgram(&g_program);
+    glusProgramDestroy(&g_program);
 }
 
 int main(int argc, char* argv[])
@@ -125,21 +125,21 @@ int main(int argc, char* argv[])
     		EGL_NONE
     };
 
-    glusInitFunc(init);
+    glusCallbackSetInitFunc(init);
 
-    glusReshapeFunc(reshape);
+    glusCallbackSetReshapeFunc(reshape);
 
-    glusUpdateFunc(update);
+    glusCallbackSetUpdateFunc(update);
 
-    glusTerminateFunc(terminate);
+    glusCallbackSetTerminateFunc(terminate);
 
-    if (!glusCreateWindow("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
+    if (!glusWindowCreate("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
     {
         printf("Could not create window!\n");
         return -1;
     }
 
-    glusRun();
+    glusWindowRun();
 
     return 0;
 }
