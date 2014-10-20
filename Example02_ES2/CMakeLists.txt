@@ -32,9 +32,9 @@ ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 	add_definitions(-DGLUS_ES2)
 	
-	include_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.3_R2\\Builds\\Include ${Example02_ES2_SOURCE_DIR}/../GLUS/src)	
+	include_directories(C:\\Imagination\\PowerVR_Graphics\\PowerVR_SDK\\SDK_3.4\\Builds\\Include ${Example02_ES2_SOURCE_DIR}/../GLUS/src)	
 	
-	link_directories(C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.3_R2\\Builds\\Windows\\x86_32\\Lib ${Example02_ES2_SOURCE_DIR}/../GLUS)
+	link_directories(C:\\Imagination\\PowerVR_Graphics\\PowerVR_SDK\\SDK_3.4\\Builds\\Windows\\x86_32\\Lib ${Example02_ES2_SOURCE_DIR}/../GLUS)
 			
 ENDIF()
 
