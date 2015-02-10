@@ -1,5 +1,5 @@
 /**
- * OpenGL ES 3.0 - Example 06
+ * OpenGL 3 - Example 03
  *
  * @author	Norbert Nopper norbert@nopper.tv
  *
@@ -10,65 +10,76 @@
 
 #include <stdio.h>
 
-#include "GLES3/glus3.h"
+#include "GL/glus.h"
 
+/**
+ * The used shader program.
+ */
 static GLUSprogram g_program;
 
-// The matrix locations in the program.
+/**
+ * Location of the model view projection matrix in the shader program.
+ */
+static GLint g_modelViewProjectionMatrixLocation;
 
-static GLint g_viewProjectionMatrixLocation;
-
-static GLint g_modelMatrixLocation;
-
-static GLint g_normalMatrixLocation;
-
-static GLint g_lightDirectionLocation;
-
+/**
+ * The location of the vertex in the shader program.
+ */
 static GLint g_vertexLocation;
 
-static GLint g_normalLocation;
-
+/**
+ * The location of the texture coordinate in the shader program.
+ */
 static GLint g_texCoordLocation;
 
+/**
+ * The location of the texture in the shader program.
+ */
 static GLint g_textureLocation;
 
-//
-
+/**
+ * The VBO for the vertices.
+ */
 static GLuint g_verticesVBO;
 
-static GLuint g_normalsVBO;
-
+/**
+ * The VBO for the texture coordinates.
+ */
 static GLuint g_texCoordsVBO;
 
+/**
+ * The VBO for the indices.
+ */
 static GLuint g_indicesVBO;
 
-//
-
+/**
+ * The VAO for the vertices etc.
+ */
 static GLuint g_vao;
 
-//
-
+/**
+ * The texture.
+ */
 static GLuint g_texture;
 
-//
-
-static GLuint g_numberIndicesSphere;
+/**
+ * The number of the indices
+ */
+static GLuint g_numberIndicesPlane;
 
 GLUSboolean init(GLUSvoid)
 {
-    GLfloat lightDirection[3] = { 1.0f, 1.0f, 1.0f };
-
     GLUStextfile vertexSource;
     GLUStextfile fragmentSource;
 
     GLUStgaimage image;
 
-    GLUSshape cube;
+    GLUSshape plane;
 
-    glusFileLoadText("../Example06_ES/shader/basic.vert.glsl", &vertexSource);
-    glusFileLoadText("../Example06_ES/shader/texture.frag.glsl", &fragmentSource);
+    glusFileLoadText("../Example03/shader/texture.vert.glsl", &vertexSource);
+    glusFileLoadText("../Example03/shader/grey.frag.glsl", &fragmentSource);
 
-    glusProgramBuildFromSource(&g_program, (const GLUSchar**) &vertexSource.text, (const GLUSchar**) &fragmentSource.text);
+    glusProgramBuildFromSource(&g_program, (const GLchar**) &vertexSource.text, 0, 0, 0, (const GLchar**) &fragmentSource.text);
 
     glusFileDestroyText(&vertexSource);
     glusFileDestroyText(&fragmentSource);
@@ -76,35 +87,26 @@ GLUSboolean init(GLUSvoid)
     //
 
     // Retrieve the uniform locations in the program.
-    g_viewProjectionMatrixLocation = glGetUniformLocation(g_program.program, "u_viewProjectionMatrix");
-    g_modelMatrixLocation = glGetUniformLocation(g_program.program, "u_modelMatrix");
-    g_normalMatrixLocation = glGetUniformLocation(g_program.program, "u_normalMatrix");
-    g_lightDirectionLocation = glGetUniformLocation(g_program.program, "u_lightDirection");
+    g_modelViewProjectionMatrixLocation = glGetUniformLocation(g_program.program, "u_modelViewProjectionMatrix");
     g_textureLocation = glGetUniformLocation(g_program.program, "u_texture");
 
-    // Retrieve the attribute locations in the program.
     g_vertexLocation = glGetAttribLocation(g_program.program, "a_vertex");
-    g_normalLocation = glGetAttribLocation(g_program.program, "a_normal");
     g_texCoordLocation = glGetAttribLocation(g_program.program, "a_texCoord");
 
     //
 
-    // Texture set up.
+    // Load the image.
+    glusImageLoadTga("desert.tga", &image);
 
-    glusImageLoadTga("crate.tga", &image);
-
+    // Generate and bind a texture.
     glGenTextures(1, &g_texture);
     glBindTexture(GL_TEXTURE_2D, g_texture);
 
+    // Transfer the image data from the CPU to the GPU.
     glTexImage2D(GL_TEXTURE_2D, 0, image.format, image.width, image.height, 0, image.format, GL_UNSIGNED_BYTE, image.data);
 
-    glusImageDestroyTga(&image);
-
-    // Mipmap generation is now included in OpenGL 3 and above
-    glGenerateMipmap(GL_TEXTURE_2D);
-
-    // Trilinear filtering
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    // Setting the texture parameters.
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -113,31 +115,34 @@ GLUSboolean init(GLUSvoid)
 
     //
 
-    glusShapeCreateCubef(&cube, 0.5f);
+    // Use a helper function to create a rectangular plane.
+    glusShapeCreateRectangularPlanef(&plane, (GLfloat) image.width / 2.0f, (GLfloat) image.height / 2.0f);
 
-    g_numberIndicesSphere = cube.numberIndices;
+    // Destroying now the image, as the width and height was used above.
+    glusImageDestroyTga(&image);
+
+    // Store the number indices, as we will render with glDrawElements.
+    g_numberIndicesPlane = plane.numberIndices;
 
     glGenBuffers(1, &g_verticesVBO);
     glBindBuffer(GL_ARRAY_BUFFER, g_verticesVBO);
-    glBufferData(GL_ARRAY_BUFFER, cube.numberVertices * 4 * sizeof(GLfloat), (GLfloat*) cube.vertices, GL_STATIC_DRAW);
-
-    glGenBuffers(1, &g_normalsVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, g_normalsVBO);
-    glBufferData(GL_ARRAY_BUFFER, cube.numberVertices * 3 * sizeof(GLfloat), (GLfloat*) cube.normals, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, plane.numberVertices * 4 * sizeof(GLfloat), (GLfloat*) plane.vertices, GL_STATIC_DRAW);
 
     glGenBuffers(1, &g_texCoordsVBO);
     glBindBuffer(GL_ARRAY_BUFFER, g_texCoordsVBO);
-    glBufferData(GL_ARRAY_BUFFER, cube.numberVertices * 2 * sizeof(GLfloat), (GLfloat*) cube.texCoords, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, plane.numberVertices * 2 * sizeof(GLfloat), (GLfloat*) plane.texCoords, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+    // Generate a VBO for the indices.
     glGenBuffers(1, &g_indicesVBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, g_indicesVBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, cube.numberIndices * sizeof(GLuint), (GLuint*) cube.indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, plane.numberIndices * sizeof(GLuint), (GLuint*) plane.indices, GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-    glusShapeDestroyf(&cube);
+    // Now we can destroy the shape, as all data is now on the GPU.
+    glusShapeDestroyf(&plane);
 
     //
 
@@ -150,35 +155,23 @@ GLUSboolean init(GLUSvoid)
     glVertexAttribPointer(g_vertexLocation, 4, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(g_vertexLocation);
 
-    glBindBuffer(GL_ARRAY_BUFFER, g_normalsVBO);
-    glVertexAttribPointer(g_normalLocation, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(g_normalLocation);
-
     glBindBuffer(GL_ARRAY_BUFFER, g_texCoordsVBO);
     glVertexAttribPointer(g_texCoordLocation, 2, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(g_texCoordLocation);
 
+    // Also bind the indices to the VAO.
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, g_indicesVBO);
 
     //
 
-    glusVector3Normalizef(lightDirection);
-    glUniform3fv(g_lightDirectionLocation, 1, lightDirection);
-
-    //
-
+    // Also bind created texture ...
     glBindTexture(GL_TEXTURE_2D, g_texture);
+    // ... and as this is texture number 0, bind the uniform to the program.
     glUniform1i(g_textureLocation, 0);
 
     //
 
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-    glClearDepthf(1.0f);
-
-    glEnable(GL_DEPTH_TEST);
-
-    glEnable(GL_CULL_FACE);
 
     return GLUS_TRUE;
 }
@@ -186,40 +179,29 @@ GLUSboolean init(GLUSvoid)
 GLUSvoid reshape(GLUSint width, GLUSint height)
 {
     GLfloat viewMatrix[16];
-    GLfloat viewProjectionMatrix[16];
+    GLfloat modelViewProjectionMatrix[16];
 
     glViewport(0, 0, width, height);
 
+    // Create the view matrix.
     glusMatrix4x4LookAtf(viewMatrix, 0.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
-    glusMatrix4x4Perspectivef(viewProjectionMatrix, 40.0f, (GLfloat) width / (GLfloat) height, 1.0f, 100.0f);
+    // Create a orthogonal projection matrix.
+    glusMatrix4x4Orthof(modelViewProjectionMatrix, -(GLfloat) width / 2.0f, (GLfloat) width / 2.0f, -(GLfloat) height / 2.0f, (GLfloat) height / 2.0f, 1.0f, 100.0f);
 
-    glusMatrix4x4Multiplyf(viewProjectionMatrix, viewProjectionMatrix, viewMatrix);
+    // MVP = P * V * M (Note: Here we do not have model matrix).
+    glusMatrix4x4Multiplyf(modelViewProjectionMatrix, modelViewProjectionMatrix, viewMatrix);
 
-    glUniformMatrix4fv(g_viewProjectionMatrixLocation, 1, GL_FALSE, viewProjectionMatrix);
+    // Pass the model view projection matrix to the current active program.
+    glUniformMatrix4fv(g_modelViewProjectionMatrixLocation, 1, GL_FALSE, modelViewProjectionMatrix);
 }
 
 GLUSboolean update(GLUSfloat time)
 {
-    static GLfloat angle = 0.0f;
+    glClear(GL_COLOR_BUFFER_BIT);
 
-    GLfloat modelMatrix[16];
-    GLfloat normalMatrix[9];
-
-    // 90 degrees per second. Rotate the texture cube along the y axis (yaw).
-    angle += 90.0f * time;
-
-    glusMatrix4x4Identityf(modelMatrix);
-    glusMatrix4x4RotateRzRxRyf(modelMatrix, 0.0f, 45.0f, angle);
-    glUniformMatrix4fv(g_modelMatrixLocation, 1, GL_FALSE, modelMatrix);
-
-    // Model matrix is a rigid body matrix.
-    glusMatrix4x4ExtractMatrix3x3f(normalMatrix, modelMatrix);
-    glUniformMatrix3fv(g_normalMatrixLocation, 1, GL_FALSE, normalMatrix);
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glDrawElements(GL_TRIANGLES, g_numberIndicesSphere, GL_UNSIGNED_INT, 0);
+    // Here we draw the plane / rectangle using the indices, stored in the VBO.
+    glDrawElements(GL_TRIANGLES, g_numberIndicesPlane, GL_UNSIGNED_INT, 0);
 
     return GLUS_TRUE;
 }
@@ -233,13 +215,6 @@ GLUSvoid terminate(GLUSvoid)
         glDeleteBuffers(1, &g_verticesVBO);
 
         g_verticesVBO = 0;
-    }
-
-    if (g_normalsVBO)
-    {
-        glDeleteBuffers(1, &g_normalsVBO);
-
-        g_normalsVBO = 0;
     }
 
     if (g_texCoordsVBO)
@@ -260,7 +235,7 @@ GLUSvoid terminate(GLUSvoid)
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-	if (g_texture)
+    if (g_texture)
     {
         glDeleteTextures(1, &g_texture);
 
@@ -287,13 +262,17 @@ int main(int argc, char* argv[])
 	        EGL_RED_SIZE, 8,
 	        EGL_GREEN_SIZE, 8,
 	        EGL_BLUE_SIZE, 8,
-	        EGL_DEPTH_SIZE, 24,
-	        EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT,
+	        EGL_DEPTH_SIZE, 0,
+	        EGL_STENCIL_SIZE, 0,
+	        EGL_RENDERABLE_TYPE, EGL_OPENGL_BIT,
 	        EGL_NONE
 	};
 
     EGLint eglContextAttributes[] = {
-    		EGL_CONTEXT_CLIENT_VERSION, 3,
+    		EGL_CONTEXT_MAJOR_VERSION, 3,
+    		EGL_CONTEXT_MINOR_VERSION, 2,
+    		EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE, EGL_TRUE,
+    		EGL_CONTEXT_OPENGL_PROFILE_MASK, EGL_CONTEXT_OPENGL_CORE_PROFILE_BIT,
     		EGL_NONE
     };
 
