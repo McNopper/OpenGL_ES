@@ -1,0 +1,63 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+# No macOS job: GLUS has no macOS ES window backend, and the ES providers are
+# ANGLE (Windows) and the system EGL/GLES stack (Linux).
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    steps:
+      # The examples prefer a sibling ../GLUS checkout, which builds the
+      # current GLUS HEAD instead of the pinned release tag.
+      - uses: actions/checkout@v4
+        with:
+          path: OpenGL_ES
+      - uses: actions/checkout@v4
+        with:
+          repository: McNopper/GLUS
+          path: GLUS
+
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libx11-dev \
+            libxrandr-dev \
+            libegl-dev \
+            libgles-dev
+
+      # ANGLE is provided through the vcpkg manifest (vcpkg.json). The Windows
+      # runner ships vcpkg; activating the toolchain file runs the manifest
+      # install as part of the configure step. The vcpkg root is named
+      # differently across environments (VCPKG_ROOT locally, VCPKG_INSTALLATION_ROOT
+      # on the hosted runners), so resolve it here.
+      - name: Configure (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $vcpkg = @($env:VCPKG_ROOT, $env:VCPKG_INSTALLATION_ROOT, 'C:\vcpkg') | Where-Object { $_ -and (Test-Path "$_\scripts\buildsystems\vcpkg.cmake") } | Select-Object -First 1
+          if (-not $vcpkg) { throw 'vcpkg toolchain file not found' }
+          cmake -S OpenGL_ES -B OpenGL_ES/build -DCMAKE_BUILD_TYPE=Release "-DCMAKE_TOOLCHAIN_FILE=$vcpkg/scripts/buildsystems/vcpkg.cmake"
+      - name: Configure (Linux)
+        if: runner.os == 'Linux'
+        run: cmake -S OpenGL_ES -B OpenGL_ES/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build OpenGL_ES/build --config Release
