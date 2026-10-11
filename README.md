@@ -7,6 +7,12 @@ OpenGL ES 2.0, OpenGL ES 3.0 and OpenGL ES 3.1 with GLSL
 
 ## Changelog
 
+### v1.0.1
+
+Documentation only; no example or build changes. All 17 example
+screenshots re-captured against the current stack - chrome-free 640x480
+client area, static scenes pixel-exact against the previous captures.
+
 ### v1.0.0
 
 The examples move to the McNopper/OpenGL build environment:
