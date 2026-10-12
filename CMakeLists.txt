@@ -104,7 +104,7 @@ else()
     FetchContent_Declare(
         glus
         GIT_REPOSITORY https://github.com/McNopper/GLUS.git
-        GIT_TAG        v1.1.6
+        GIT_TAG        v1.1.7
     )
 endif()
 FetchContent_MakeAvailable(glus)

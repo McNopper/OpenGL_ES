@@ -7,6 +7,22 @@ OpenGL ES 2.0, OpenGL ES 3.0, OpenGL ES 3.1 and OpenGL ES 3.2 with GLSL
 
 ## Changelog
 
+### v1.0.2
+
+Build system and dependency pin update; no example changes, rendered output
+unchanged on every platform that worked before.
+
+- **Track GLUS v1.1.7**: brings the embedded Linux windowing backends -
+  `SoC=fbdev` (with the `GPU=Vivante` guard), `SoC=Wayland` and `SoC=GBM`
+  (with the `Rotation` flag) - and the `OpenGL=ES32` flavor.
+- **The GLUS platform libraries follow the windowing backend**: fbdev and
+  GBM need no X11 (the sysroot of such targets has none), Wayland resolves
+  its `wl_*`/`wl_egl_window_*` symbols through wayland-client and
+  wayland-egl; the X11 libraries stay the Linux default.
+- Verified: Windows (ANGLE), desktop Linux, and ARM cross builds for fbdev,
+  Wayland and GBM - on the STM32MP157F-DK2, the `*_ES2` examples render
+  under Weston and fullscreen without a compositor.
+
 ### v1.0.1
 
 Documentation only; no example or build changes. All 17 example
