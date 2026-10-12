@@ -114,8 +114,18 @@ FetchContent_MakeAvailable(glus)
 # The platform libraries resolve the native window and timer symbols inside
 # GLUS itself, so they are PUBLIC dependencies too: the linker needs them
 # after the static GLUS library, which is exactly how CMake orders them.
+# The fbdev windowing (SoC=fbdev) takes its native window from the platform
+# EGL and its input from evdev, so it needs no X11 at all.
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    set(GLUS_PLATFORM_LIBRARIES X11 Xrandr dl pthread m)
+    if(SoC MATCHES "fbdev")
+        set(GLUS_PLATFORM_LIBRARIES dl pthread m)
+    elseif(SoC MATCHES "Wayland")
+        # wl_* and wl_egl_window_* inside GLUS resolve through wayland-client
+        # and wayland-egl.
+        set(GLUS_PLATFORM_LIBRARIES wayland-client wayland-egl dl pthread m)
+    else()
+        set(GLUS_PLATFORM_LIBRARIES X11 Xrandr dl pthread m)
+    endif()
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     set(GLUS_PLATFORM_LIBRARIES winmm)
 ENDIF()
