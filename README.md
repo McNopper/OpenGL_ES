@@ -3,7 +3,7 @@ OpenGL_ES
 
 [![Build](https://github.com/McNopper/OpenGL_ES/actions/workflows/build.yml/badge.svg)](https://github.com/McNopper/OpenGL_ES/actions/workflows/build.yml)
 
-OpenGL ES 2.0, OpenGL ES 3.0 and OpenGL ES 3.1 with GLSL
+OpenGL ES 2.0, OpenGL ES 3.0, OpenGL ES 3.1 and OpenGL ES 3.2 with GLSL
 
 ## Changelog
 
