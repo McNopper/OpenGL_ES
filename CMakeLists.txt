@@ -123,6 +123,9 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
         # wl_* and wl_egl_window_* inside GLUS resolve through wayland-client
         # and wayland-egl.
         set(GLUS_PLATFORM_LIBRARIES wayland-client wayland-egl dl pthread m)
+    elseif(SoC MATCHES "GBM")
+        # drm* and gbm_* inside GLUS resolve through libdrm and libgbm.
+        set(GLUS_PLATFORM_LIBRARIES drm gbm dl pthread m)
     else()
         set(GLUS_PLATFORM_LIBRARIES X11 Xrandr dl pthread m)
     endif()
