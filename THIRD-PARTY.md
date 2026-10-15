@@ -1,8 +1,8 @@
 # Third-Party Licenses
 
-This file aggregates the third-party licenses and copyright notices that apply to
-the **McNopper/OpenGL_ES examples** specifically - i.e. what this repository adds on
-top of its underlying library, [GLUS](https://github.com/McNopper/GLUS).
+This file aggregates the third-party licenses and copyright notices that apply
+to the **McNopper/OpenGL_ES examples** specifically - i.e. what this repository
+adds on top of its underlying library, [GLUS](https://github.com/McNopper/GLUS).
 
 The examples themselves are distributed under the **MIT License** - see
 [`LICENSE`](LICENSE).
@@ -15,7 +15,7 @@ the window/context boilerplate for the OpenGL ES flavors. Unlike the desktop
 flavor, the ES flavors bundle no third-party dependencies of their own; the
 full license texts and copyright notices are maintained in the GLUS repository:
 
-https://github.com/McNopper/GLUS/blob/main/THIRD-PARTY.md
+<https://github.com/McNopper/GLUS/blob/main/THIRD-PARTY.md>
 
 They are not duplicated here; comply with them as described in that file.
 
@@ -24,21 +24,21 @@ They are not duplicated here; comply with them as described in that file.
 ### ANGLE (Windows OpenGL ES provider)
 
 - **Library:** ANGLE (Almost Native Graphics Layer Engine)
-- **Upstream:** https://github.com/google/angle
+- **Upstream:** <https://github.com/google/angle>
 - **License:** BSD-3-Clause
 - **Copyright:** Copyright 2018 The ANGLE Project Authors. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
-* Redistributions of source code must retain the above copyright notice, this
+- Redistributions of source code must retain the above copyright notice, this
   list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-* Neither the name of Google Inc. nor the names of its contributors may be
-  used to endorse or promote products derived from this software without
-  specific prior written permission.
+- Redistributions in binary form must reproduce the above copyright notice, this
+  list of conditions and the following disclaimer in the documentation and/or
+  other materials provided with the distribution.
+- Neither the name of Google Inc. nor the names of its contributors may be used
+  to endorse or promote products derived from this software without specific
+  prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -68,10 +68,10 @@ desktop). These are system libraries loaded through `find_library`; there are
 Textures and scene data used by the examples are bundled as binary assets:
 
 - `sponza.obj`/`sponza.mtl` and `sponza/` - the Sponza scene, originally by
-  Frank Meinl / Crytek (https://github.com/crytek/sponza), CC-BY.
+  Frank Meinl / Crytek (<https://github.com/crytek/sponza>), CC-BY.
 - `bunny.obj`, `dragon.obj` - from the Stanford 3D Scanning Repository
-  (https://graphics.stanford.edu/data/3Dscanrep/).
+  (<https://graphics.stanford.edu/data/3Dscanrep/>).
 - `teapot.obj` - the Utah teapot (Martin Newell, 1975).
-- `monkey.obj` - Suzanne, the Blender test model (https://www.blender.org).
+- `monkey.obj` - Suzanne, the Blender test model (<https://www.blender.org>).
 - Remaining `.tga`/`.hdr` textures and models (`Chess*`, `doge2/`, `water_*`,
   `cm_*`, ...) are example content maintained in this repository.
