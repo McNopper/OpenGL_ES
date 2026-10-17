@@ -1,1 +1,4 @@
-*.yml text eol=lf
+*.yml text eol=lf*.supp text eol=lf
+.clang-tidy text eol=lf
+.markdownlint.yaml text eol=lf
+.yamllint text eol=lf
