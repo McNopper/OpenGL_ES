@@ -53,8 +53,8 @@ jobs:
         run: |
           $vcpkg = @($env:VCPKG_ROOT, $env:VCPKG_INSTALLATION_ROOT, 'C:\vcpkg') | Where-Object { $_ -and (Test-Path "$_\scripts\buildsystems\vcpkg.cmake") } | Select-Object -First 1
           if (-not $vcpkg) { throw 'vcpkg toolchain file not found' }
-          git -C $vcpkg fetch origin a4f7741c53c97354fc43222fea17955c657dd549
-          git -C $vcpkg checkout --detach a4f7741c53c97354fc43222fea17955c657dd549
+          git -C $vcpkg fetch origin 357b1a6f8343064ca982a20771e420fcecfe7efc
+          git -C $vcpkg checkout --detach 357b1a6f8343064ca982a20771e420fcecfe7efc
           & "$vcpkg/bootstrap-vcpkg.bat" -disableMetrics
 
       # ANGLE is provided through the vcpkg manifest (vcpkg.json). The Windows
