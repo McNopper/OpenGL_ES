@@ -43,6 +43,20 @@ jobs:
             libegl-dev \
             libgles-dev
 
+      # The manifest's builtin-baseline can be newer than the vcpkg checkout
+      # bundled with the runner image, and vcpkg resolves the baseline against
+      # its own git history. Align the checkout with the pinned baseline and
+      # rebootstrap, so the ANGLE port recipe matches the manifest exactly.
+      - name: Align vcpkg with the manifest baseline
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $vcpkg = @($env:VCPKG_ROOT, $env:VCPKG_INSTALLATION_ROOT, 'C:\vcpkg') | Where-Object { $_ -and (Test-Path "$_\scripts\buildsystems\vcpkg.cmake") } | Select-Object -First 1
+          if (-not $vcpkg) { throw 'vcpkg toolchain file not found' }
+          git -C $vcpkg fetch origin a4f7741c53c97354fc43222fea17955c657dd549
+          git -C $vcpkg checkout --detach a4f7741c53c97354fc43222fea17955c657dd549
+          & "$vcpkg/bootstrap-vcpkg.bat" -disableMetrics
+
       # ANGLE is provided through the vcpkg manifest (vcpkg.json). The Windows
       # runner ships vcpkg; activating the toolchain file runs the manifest
       # install as part of the configure step. The vcpkg root is named
