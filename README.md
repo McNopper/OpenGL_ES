@@ -6,6 +6,17 @@ OpenGL ES 2.0, OpenGL ES 3.0, OpenGL ES 3.1 and OpenGL ES 3.2 with GLSL
 
 ## Changelog
 
+### v1.0.3
+
+Build system and dependency pin update; no example changes, rendered output
+unchanged on every platform that worked before.
+
+- **Track GLUS v1.1.10**: cgltf v1.15 with improved validation and new
+  extension parsing, morph NORMAL/TANGENT deltas detected across all morph
+  targets, a GBM/DRM fix that consumes page flip events (fixes a frozen
+  picture after a few frames), a wavefront loader flush guard, and the
+  analysis CI lane.
+
 ### v1.0.2
 
 Build system and dependency pin update; no example changes, rendered output
