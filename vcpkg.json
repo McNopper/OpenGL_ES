@@ -2,7 +2,7 @@
   "name": "opengl-es-examples",
   "version-string": "1.0.0",
   "description": "OpenGL ES 2.0, 3.0 and 3.1 examples built on GLUS",
-  "builtin-baseline": "a4f7741c53c97354fc43222fea17955c657dd549",
+  "builtin-baseline": "b85445dced129c00362b5e64f49f29e1b922cbb9",
   "dependencies": [
     {
       "name": "angle",
