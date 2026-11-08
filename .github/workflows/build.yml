@@ -76,7 +76,18 @@ jobs:
         run: |
           $vcpkg = @($env:VCPKG_ROOT, $env:VCPKG_INSTALLATION_ROOT, 'C:\vcpkg') | Where-Object { $_ -and (Test-Path "$_\scripts\buildsystems\vcpkg.cmake") } | Select-Object -First 1
           if (-not $vcpkg) { throw 'vcpkg toolchain file not found' }
-          cmake -S OpenGL_ES -B OpenGL_ES/build -DCMAKE_BUILD_TYPE=Release "-DCMAKE_TOOLCHAIN_FILE=$vcpkg/scripts/buildsystems/vcpkg.cmake"
+          # The manifest install downloads the ports' sources from the release
+          # CDN, which intermittently resets transfers, and vcpkg does not
+          # classify every such failure as transient. Completed downloads and
+          # port builds are cached, so retrying the configure resumes where it
+          # stopped.
+          $attempts = 4
+          for ($i = 1; $i -le $attempts; $i++) {
+              cmake -S OpenGL_ES -B OpenGL_ES/build -DCMAKE_BUILD_TYPE=Release "-DCMAKE_TOOLCHAIN_FILE=$vcpkg/scripts/buildsystems/vcpkg.cmake"
+              if ($LASTEXITCODE -eq 0) { break }
+              if ($i -eq $attempts) { throw "configure failed after $attempts attempts" }
+              Start-Sleep -Seconds 15
+          }
       - name: Configure (Linux)
         if: runner.os == 'Linux'
         run: cmake -S OpenGL_ES -B OpenGL_ES/build -G Ninja -DCMAKE_BUILD_TYPE=Release
