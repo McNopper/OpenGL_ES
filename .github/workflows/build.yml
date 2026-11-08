@@ -55,7 +55,15 @@ jobs:
           if (-not $vcpkg) { throw 'vcpkg toolchain file not found' }
           git -C $vcpkg fetch origin 357b1a6f8343064ca982a20771e420fcecfe7efc
           git -C $vcpkg checkout --detach 357b1a6f8343064ca982a20771e420fcecfe7efc
-          & "$vcpkg/bootstrap-vcpkg.bat" -disableMetrics
+          # The bootstrap downloads vcpkg.exe from the release CDN, which
+          # intermittently resets transfers; retry before giving up.
+          $attempts = 5
+          for ($i = 1; $i -le $attempts; $i++) {
+              & "$vcpkg/bootstrap-vcpkg.bat" -disableMetrics
+              if ($LASTEXITCODE -eq 0) { break }
+              if ($i -eq $attempts) { throw "vcpkg bootstrap failed after $attempts attempts" }
+              Start-Sleep -Seconds (10 * $i)
+          }
 
       # ANGLE is provided through the vcpkg manifest (vcpkg.json). The Windows
       # runner ships vcpkg; activating the toolchain file runs the manifest
