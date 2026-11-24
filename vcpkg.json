@@ -1,6 +1,6 @@
 {
   "name": "opengl-es-examples",
-  "version-string": "1.0.0",
+  "version-string": "1.0.4",
   "description": "OpenGL ES 2.0, 3.0 and 3.1 examples built on GLUS",
   "builtin-baseline": "b85445dced129c00362b5e64f49f29e1b922cbb9",
   "dependencies": [

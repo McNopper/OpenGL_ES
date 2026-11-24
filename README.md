@@ -6,6 +6,20 @@ OpenGL ES 2.0, OpenGL ES 3.0, OpenGL ES 3.1 and OpenGL ES 3.2 with GLSL
 
 ## Changelog
 
+### v1.0.4
+
+Build system, CI and dependency updates; no example changes, rendered output
+unchanged on every platform that worked before.
+
+- **Sanitizer configuration is fixed**: the shared warnings helper now uses
+  `target_link_options`, avoiding mixed plain/keyword link signatures.
+- **Track GLUS v1.1.11**: current Xlib builds are warning-free, and desktop
+  startup works on Wayland sessions through an explicit GLX-compatible window
+  backend.
+- **Windows ANGLE CI is deterministic and resilient**: the runner vcpkg is
+  pinned to the Python 3.14 era, its bootstrap and manifest configure retry
+  around transient release-CDN failures.
+
 ### v1.0.3
 
 Build system and dependency pin update; no example changes, rendered output
